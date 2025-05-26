@@ -1,4 +1,10 @@
-import { GraphQLEnumType, GraphQLObjectType, GraphQLFloat, GraphQLInt } from 'graphql';
+import {
+  GraphQLEnumType,
+  GraphQLObjectType,
+  GraphQLFloat,
+  GraphQLInt,
+  GraphQLNonNull,
+} from 'graphql';
 import { MemberTypeIdType } from './enums.js';
 
 export const MemberTypeId = new GraphQLEnumType({
@@ -12,8 +18,8 @@ export const MemberTypeId = new GraphQLEnumType({
 export const MemberType = new GraphQLObjectType({
   name: 'MemberType',
   fields: () => ({
-    id: { type: MemberTypeId },
-    discount: { type: GraphQLFloat },
-    postsLimitPerMonth: { type: GraphQLInt },
+    id: { type: new GraphQLNonNull(MemberTypeId) },
+    discount: { type: new GraphQLNonNull(GraphQLFloat) },
+    postsLimitPerMonth: { type: new GraphQLNonNull(GraphQLInt) },
   }),
 });
