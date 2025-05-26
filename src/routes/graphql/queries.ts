@@ -1,12 +1,5 @@
 import { GraphQLNonNull, GraphQLList, GraphQLObjectType } from 'graphql';
-import {
-  PostType,
-  UserType,
-  ProfileType,
-  GqlContext,
-  MemberType,
-  MemberTypeId,
-} from './types/types.js';
+import { GqlContext } from './types/types.js';
 import { UUIDType } from './types/uuid.js';
 import {
   parseResolveInfo,
@@ -14,6 +7,10 @@ import {
   simplifyParsedResolveInfoFragmentWithType,
 } from 'graphql-parse-resolve-info';
 import { MemberTypeIdType } from './types/enums.js';
+import { PostType } from './types/postType.js';
+import { UserType } from './types/userType.js';
+import { MemberType, MemberTypeId } from './types/memberType.js';
+import { ProfileType } from './types/profileType.js';
 
 export const Query = new GraphQLObjectType({
   name: 'Query',
